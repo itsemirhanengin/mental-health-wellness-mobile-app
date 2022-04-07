@@ -1,11 +1,13 @@
+import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import { SafeAreaView, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { Section } from './src/lib/components'
 
-const App = () => {
+function HomeScreen() {
   return (
-    <SafeAreaView>
+    <>
       <Section>
         <Text>Good Afternoon,</Text>
         <Text>Sarina!</Text>
@@ -34,7 +36,19 @@ const App = () => {
           </View>
         </Section>
       </Section>
-    </SafeAreaView>
+    </>
+  )
+}
+
+const Stack = createNativeStackNavigator()
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
