@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-import { Section } from '../../lib/components'
+import { Page, Section } from '../../lib/components'
 
 const Home = () => {
   return (
-    <>
+    <Page>
       <Section>
         <Text>Good Afternoon,</Text>
         <Text>Sarina!</Text>
@@ -34,7 +34,7 @@ const Home = () => {
           </View>
         </Section>
       </Section>
-    </>
+    </Page>
   )
 }
 

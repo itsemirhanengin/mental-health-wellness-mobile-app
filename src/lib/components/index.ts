@@ -1,3 +1,4 @@
+import { Page } from './Page'
 import { Section } from './Section'
 
-export { Section }
+export { Page, Section }
