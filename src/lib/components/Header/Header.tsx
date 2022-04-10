@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { EventRegister } from 'react-native-event-listeners'
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { IconNotification } from '../../icons'
 
 import { TouchableOpacity } from '../TouchableOpacity'
 
 const Header: React.FC = () => {
+  const [headerStatus, setHeaderStatus] = useState('idle')
+
+  useEffect(() => {
+    EventRegister.addEventListener('page', data => {
+      if (data !== 0) {
+        return setHeaderStatus('scrolled')
+      }
+
+      return setHeaderStatus('idle')
+    })
+  }, [headerStatus])
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={[headerStatus === 'scrolled' && styles.scrolled]}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.avatar}>
           <Image source={require('../../assets/avatar.png')} />
@@ -31,6 +44,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+
+  scrolled: {
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: -2,
+    },
+    shadowOpacity: 0.11,
+    shadowRadius: 12,
+    elevation: 4,
   },
 
   avatar: {
