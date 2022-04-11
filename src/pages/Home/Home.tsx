@@ -4,6 +4,7 @@ import { StyleSheet, Text } from 'react-native'
 import { Mood } from './components/Mood'
 import { Page, Section } from '../../lib/components'
 import { Categories } from './components/Categories'
+import { Quote } from './components/Quote'
 
 const Home = () => {
   return (
@@ -16,6 +17,8 @@ const Home = () => {
       <Mood title="How are you feeling today ?" />
 
       <Categories />
+
+      <Quote />
     </Page>
   )
 }
