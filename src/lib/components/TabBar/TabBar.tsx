@@ -1,27 +1,41 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-import { IconChat, IconCommunity, IconHome, IconSessions } from './icons'
+import {
+  IconActiveChat,
+  IconActiveCommunity,
+  IconActiveHome,
+  IconActiveSessions,
+  IconChat,
+  IconCommunity,
+  IconHome,
+  IconSessions,
+} from './icons'
 import { TouchableOpacity } from '../TouchableOpacity'
 
 const TabBar: React.FC = () => {
+  const navigation = useNavigation()
+
+  const { index } = navigation.getState()
+
   return (
     <SafeAreaView style={styles.tab}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.item}>
-          <IconHome />
+          {index === 0 ? <IconActiveHome /> : <IconHome />}
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <IconSessions />
+        <TouchableOpacity style={styles.item}>
+          {index === 1 ? <IconActiveSessions /> : <IconSessions />}
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <IconChat />
+        <TouchableOpacity style={styles.item}>
+          {index === 2 ? <IconActiveChat /> : <IconChat />}
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <IconCommunity />
+        <TouchableOpacity style={styles.item}>
+          {index === 3 ? <IconActiveCommunity /> : <IconCommunity />}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -48,7 +62,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  item: {},
+  item: {
+    position: 'relative',
+  },
 })
 
 export default TabBar
