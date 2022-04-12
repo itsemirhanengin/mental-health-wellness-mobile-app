@@ -1,13 +1,14 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+import { Header, TabBar } from '../../lib/components'
+
 import { Home as HomeScreen } from '../../pages'
-import { Header } from '../../lib/components'
 
 const Tab = createBottomTabNavigator()
 
 const RootNavigation: React.FC = () => (
-  <Tab.Navigator>
+  <Tab.Navigator tabBar={() => <TabBar />}>
     <Tab.Group
       screenOptions={{
         header: () => <Header />,
