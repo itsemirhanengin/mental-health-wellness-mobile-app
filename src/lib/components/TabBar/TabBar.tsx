@@ -23,19 +23,51 @@ const TabBar: React.FC = () => {
     <SafeAreaView style={styles.tab}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.item}>
-          {index === 0 ? <IconActiveHome /> : <IconHome />}
+          {index === 0 && (
+            <>
+              <View style={styles.indicator} />
+
+              <IconActiveHome />
+            </>
+          )}
+
+          {index !== 0 && <IconHome />}
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.item}>
-          {index === 1 ? <IconActiveSessions /> : <IconSessions />}
+          {index === 1 && (
+            <>
+              <View style={styles.indicator} />
+
+              <IconActiveSessions />
+            </>
+          )}
+
+          {index !== 1 && <IconSessions />}
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.item}>
-          {index === 2 ? <IconActiveChat /> : <IconChat />}
+          {index === 2 && (
+            <>
+              <View style={styles.indicator} />
+
+              <IconActiveChat />
+            </>
+          )}
+
+          {index !== 2 && <IconChat />}
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.item}>
-          {index === 3 ? <IconActiveCommunity /> : <IconCommunity />}
+          {index === 3 && (
+            <>
+              <View style={styles.indicator} />
+
+              <IconActiveCommunity />
+            </>
+          )}
+
+          {index !== 3 && <IconCommunity />}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -60,10 +92,21 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 24,
     justifyContent: 'space-between',
+    overflow: 'hidden',
   },
 
   item: {
     position: 'relative',
+  },
+
+  indicator: {
+    width: 12,
+    height: 12,
+    backgroundColor: '#FE8235',
+    borderRadius: 12,
+    position: 'absolute',
+    top: -18,
+    left: 20,
   },
 })
 
