@@ -1,28 +1,28 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import { IconBackground, IconCalendar, IconMeetup } from './icons'
 import { Section, TouchableOpacity } from '../../../../lib/components'
-import { IconArrowRight, IconBackground, IconMeditation } from './icons'
 
-const PlanExpired: React.FC = () => (
-  <Section>
+const Session: React.FC = () => (
+  <Section style={styles.section}>
     <TouchableOpacity style={styles.container}>
       <View style={styles.left}>
-        <Text style={styles.title}>Plan Expired</Text>
+        <Text style={styles.title}>1 on 1 Sessions</Text>
 
         <Text style={styles.description}>
-          Get back chat access and session credits
+          Let’s open up to the things that matter the most
         </Text>
 
         <View style={styles.button}>
-          <Text style={styles.buttonText}>Buy More</Text>
+          <Text style={styles.buttonText}>Book Now</Text>
 
-          <IconArrowRight />
+          <IconCalendar />
         </View>
       </View>
 
       <View style={styles.icon}>
-        <IconMeditation />
+        <IconMeetup />
       </View>
 
       <View style={styles.background}>
@@ -33,8 +33,12 @@ const PlanExpired: React.FC = () => (
 )
 
 const styles = StyleSheet.create({
+  section: {
+    marginBottom: 26,
+  },
+
   container: {
-    backgroundColor: '#55A06F',
+    backgroundColor: '#FEF3E7',
     paddingVertical: 24,
     borderRadius: 20,
     flexDirection: 'row',
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
 
   title: {
     fontSize: 22,
-    color: '#fff',
+    color: '#573926',
     fontWeight: '800',
     lineHeight: 24,
     marginBottom: 6,
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 12,
     flex: 1,
-    color: '#fff',
+    color: '#573926',
     lineHeight: 18,
     opacity: 0.9,
     marginBottom: 14,
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '700',
-    color: '#fff',
+    color: '#FE8235',
     marginRight: 6,
   },
 
@@ -90,4 +94,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default PlanExpired
+export default Session

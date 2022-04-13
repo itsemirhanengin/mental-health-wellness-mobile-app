@@ -5,7 +5,8 @@ import { Mood } from './components/Mood'
 import { Page, Section } from '../../lib/components'
 import { Categories } from './components/Categories'
 import { Quote } from './components/Quote'
-import PlanExpired from './components/PlanExpired/PlanExpired'
+import { PlanExpired } from './components/PlanExpired'
+import { Session } from './components/Session'
 
 const Home = () => {
   return (
@@ -16,6 +17,8 @@ const Home = () => {
       </Section>
 
       <Mood title="How are you feeling today ?" />
+
+      <Session />
 
       <Categories />
 
