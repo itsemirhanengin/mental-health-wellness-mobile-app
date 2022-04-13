@@ -1,4 +1,5 @@
 import IconArrowRight from './IconArrowRight'
+import IconBackground from './IconBackground'
 import IconMeditation from './IconMeditation'
 
-export { IconArrowRight, IconMeditation }
+export { IconArrowRight, IconBackground, IconMeditation }
