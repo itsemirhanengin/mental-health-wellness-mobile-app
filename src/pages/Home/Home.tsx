@@ -5,6 +5,7 @@ import { Mood } from './components/Mood'
 import { Page, Section } from '../../lib/components'
 import { Categories } from './components/Categories'
 import { Quote } from './components/Quote'
+import PlanExpired from './components/PlanExpired/PlanExpired'
 
 const Home = () => {
   return (
@@ -19,6 +20,8 @@ const Home = () => {
       <Categories />
 
       <Quote />
+
+      <PlanExpired />
     </Page>
   )
 }
