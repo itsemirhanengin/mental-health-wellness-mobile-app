@@ -81,7 +81,10 @@ const TabBar: React.FC = () => {
           {index !== 2 && <IconChat />}
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          onPress={() => onPress('Community', 3)}
+          style={styles.item}
+        >
           {index === 3 && (
             <>
               <View style={styles.indicator} />
