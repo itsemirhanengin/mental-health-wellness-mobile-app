@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
@@ -14,15 +15,34 @@ import {
 } from './icons'
 import { TouchableOpacity } from '../TouchableOpacity'
 
-const TabBar: React.FC = () => {
-  const navigation = useNavigation()
+type PageType = 'Home' | 'Sessions' | 'Community' | 'Chat'
 
-  const { index } = navigation.getState()
+type NavigationParams = {
+  Home: {}
+  Sessions: {}
+  Community: {}
+  Chat: {}
+}
+
+const TabBar: React.FC = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<NavigationParams>>()
+
+  const [index, setIndex] = useState(0)
+
+  const onPress = (page: PageType, i: number) => {
+    setIndex(i)
+
+    navigation.navigate(page, {})
+  }
 
   return (
     <SafeAreaView style={styles.tab}>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          onPress={() => onPress('Home', 0)}
+          style={styles.item}
+        >
           {index === 0 && (
             <>
               <View style={styles.indicator} />
@@ -34,7 +54,10 @@ const TabBar: React.FC = () => {
           {index !== 0 && <IconHome />}
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          onPress={() => onPress('Sessions', 1)}
+          style={styles.item}
+        >
           {index === 1 && (
             <>
               <View style={styles.indicator} />
