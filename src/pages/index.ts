@@ -1,3 +1,4 @@
 import { Home } from './Home'
+import { Sessions } from './Sessions'
 
-export { Home }
+export { Home, Sessions }
