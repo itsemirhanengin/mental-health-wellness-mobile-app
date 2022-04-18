@@ -6,9 +6,29 @@ import { IconCalendar, IconClock } from './icons'
 
 type Props = {
   active?: boolean
+  avatar?: any
+  date?: string
+  hours?: string
+  job?: string
+  name?: string
+  onPressJoinNow?: () => void
+  onPressReBook?: () => void
+  onPressReschedule?: () => void
+  onPressViewProfile?: () => void
 }
 
-const Session: React.FC<Props> = ({ active = false }) => (
+const Session: React.FC<Props> = ({
+  active = false,
+  avatar,
+  date,
+  hours,
+  job,
+  name,
+  onPressJoinNow,
+  onPressReBook,
+  onPressReschedule,
+  onPressViewProfile,
+}) => (
   <Section style={styles.section}>
     <View
       style={[
@@ -18,16 +38,13 @@ const Session: React.FC<Props> = ({ active = false }) => (
     >
       <View style={styles.heading}>
         <View style={styles.avatar}>
-          <Image
-            source={require('../../../../lib/assets/avatar-2.png')}
-            style={{ width: 32, height: 32 }}
-          />
+          <Image source={avatar} style={{ width: 32, height: 32 }} />
         </View>
 
         <View>
-          <Text style={styles.name}>Sahana V</Text>
+          <Text style={styles.name}>{name}</Text>
 
-          <Text style={styles.job}>Msc in Clinical Psychology</Text>
+          <Text style={styles.job}>{job}</Text>
         </View>
       </View>
 
@@ -37,7 +54,7 @@ const Session: React.FC<Props> = ({ active = false }) => (
             <IconCalendar />
           </View>
 
-          <Text style={styles.text}>31st March ‘22</Text>
+          <Text style={styles.text}>{date}</Text>
         </View>
 
         <View style={[styles.item, { marginRight: 0 }]}>
@@ -45,13 +62,13 @@ const Session: React.FC<Props> = ({ active = false }) => (
             <IconClock />
           </View>
 
-          <Text style={styles.text}>7:30 PM - 8:30 PM</Text>
+          <Text style={styles.text}>{hours}</Text>
         </View>
       </View>
 
       {active && (
         <View style={styles.footer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={onPressReschedule}>
             <Text style={styles.buttonText}>Reschedule</Text>
           </TouchableOpacity>
 
@@ -60,6 +77,7 @@ const Session: React.FC<Props> = ({ active = false }) => (
               styles.button,
               { marginRight: 0, backgroundColor: 'transparent' },
             ]}
+            onPress={onPressJoinNow}
           >
             <Text style={[styles.buttonText, { color: '#FE8235' }]}>
               Join Now
@@ -70,7 +88,7 @@ const Session: React.FC<Props> = ({ active = false }) => (
 
       {!active && (
         <View style={styles.footer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={onPressReBook}>
             <Text style={styles.buttonText}>Re-book</Text>
           </TouchableOpacity>
 
@@ -79,6 +97,7 @@ const Session: React.FC<Props> = ({ active = false }) => (
               styles.button,
               { marginRight: 0, backgroundColor: 'transparent' },
             ]}
+            onPress={onPressViewProfile}
           >
             <Text style={[styles.buttonText, { color: '#FE8235' }]}>
               View Profile

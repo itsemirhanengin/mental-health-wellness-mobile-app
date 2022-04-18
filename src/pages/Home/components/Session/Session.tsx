@@ -4,15 +4,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import { IconBackground, IconCalendar, IconMeetup } from './icons'
 import { Section, TouchableOpacity } from '../../../../lib/components'
 
-const Session: React.FC = () => (
-  <Section style={styles.section}>
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.left}>
-        <Text style={styles.title}>1 on 1 Sessions</Text>
+type Props = {
+  description?: string
+  onPress?: () => void
+  title?: string
+}
 
-        <Text style={styles.description}>
-          Let’s open up to the things that matter the most
-        </Text>
+const Session: React.FC<Props> = ({ description, onPress, title }) => (
+  <Section style={styles.section}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={styles.left}>
+        <Text style={styles.title}>{title}</Text>
+
+        <Text style={styles.description}>{description}</Text>
 
         <View style={styles.button}>
           <Text style={styles.buttonText}>Book Now</Text>

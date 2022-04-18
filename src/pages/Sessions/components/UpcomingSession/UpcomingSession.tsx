@@ -4,17 +4,27 @@ import { StyleSheet, Text, View } from 'react-native'
 import { IconBackground, IconPlay } from './icons'
 import { Section, TouchableOpacity } from '../../../../lib/components'
 
-const UpcomingSession: React.FC = () => (
+type Props = {
+  date?: string
+  description?: string
+  onPress?: () => void
+  title?: string
+}
+
+const UpcomingSession: React.FC<Props> = ({
+  date,
+  description,
+  onPress,
+  title,
+}) => (
   <Section style={styles.section}>
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.left}>
-        <Text style={styles.title}>Upcoming Session</Text>
+        <Text style={styles.title}>{title}</Text>
 
-        <Text style={styles.description}>
-          Sahana V, Msc in Clinical Psychology
-        </Text>
+        <Text style={styles.description}>{description}</Text>
 
-        <Text style={styles.date}>7:30 PM - 8:30 PM</Text>
+        <Text style={styles.date}>{date}</Text>
 
         <View style={styles.button}>
           <Text style={styles.buttonText}>Join Now</Text>
