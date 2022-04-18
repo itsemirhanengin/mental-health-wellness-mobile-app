@@ -4,15 +4,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import { Section, TouchableOpacity } from '../../../../lib/components'
 import { IconArrowRight, IconBackground, IconMeditation } from './icons'
 
-const PlanExpired: React.FC = () => (
-  <Section>
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.left}>
-        <Text style={styles.title}>Plan Expired</Text>
+type Props = {
+  description: string
+  onPress: () => void
+  title: string
+}
 
-        <Text style={styles.description}>
-          Get back chat access and session credits
-        </Text>
+const PlanExpired: React.FC<Props> = ({ description, onPress, title }) => (
+  <Section>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={styles.left}>
+        <Text style={styles.title}>{title}</Text>
+
+        <Text style={styles.description}>{description}</Text>
 
         <View style={styles.button}>
           <Text style={styles.buttonText}>Buy More</Text>

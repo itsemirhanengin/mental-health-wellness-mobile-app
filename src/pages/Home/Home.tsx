@@ -1,34 +1,38 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 
-import { Mood } from './components/Mood'
 import { Page, Section } from '../../lib/components'
-import { Categories } from './components/Categories'
-import { Quote } from './components/Quote'
-import { PlanExpired } from './components/PlanExpired'
-import { Session } from './components/Session'
+import { Categories, Mood, PlanExpired, Quote, Session } from './components'
 
-const Home = () => {
-  return (
-    <Page>
-      <Section style={styles.heading}>
-        <Text style={styles.title}>Good Afternoon,</Text>
+const Home = () => (
+  <Page>
+    <Section style={styles.heading}>
+      <Text style={styles.title}>Good Afternoon,</Text>
 
-        <Text style={[styles.title, styles.name]}>Sarina!</Text>
-      </Section>
+      <Text style={[styles.title, styles.name]}>Sarina!</Text>
+    </Section>
 
-      <Mood title="How are you feeling today ?" />
+    <Mood title="How are you feeling today ?" />
 
-      <Session />
+    <Session
+      title="1 on 1 Sessions"
+      description="Let’s open up to the things that matter the most"
+      onPress={() => console.log('pressed')}
+    />
 
-      <Categories />
+    <Categories />
 
-      <Quote />
+    <Quote>
+      “It is better to conquer yourself than to win a thousand battles”
+    </Quote>
 
-      <PlanExpired />
-    </Page>
-  )
-}
+    <PlanExpired
+      title="Plan Expired"
+      description="Get back chat access and session credits"
+      onPress={() => console.log('pressed')}
+    />
+  </Page>
+)
 
 const styles = StyleSheet.create({
   heading: {

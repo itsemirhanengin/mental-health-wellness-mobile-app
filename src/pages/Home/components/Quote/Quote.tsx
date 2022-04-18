@@ -4,12 +4,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import { IconQuote } from './icons'
 import { Section } from '../../../../lib/components'
 
-const Quote: React.FC = () => (
+const Quote: React.FC = ({ children }) => (
   <Section style={styles.section}>
     <View style={styles.card}>
-      <Text style={styles.text}>
-        “It is better to conquer yourself than to win a thousand battles”
-      </Text>
+      <Text style={styles.text}>{children}</Text>
 
       <IconQuote />
     </View>
