@@ -13,6 +13,7 @@ const Home = () => {
     <Page>
       <Section style={styles.heading}>
         <Text style={styles.title}>Good Afternoon,</Text>
+
         <Text style={[styles.title, styles.name]}>Sarina!</Text>
       </Section>
 
