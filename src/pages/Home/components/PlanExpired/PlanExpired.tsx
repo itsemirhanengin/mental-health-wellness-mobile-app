@@ -5,9 +5,9 @@ import { Section, TouchableOpacity } from '../../../../lib/components'
 import { IconArrowRight, IconBackground, IconMeditation } from './icons'
 
 type Props = {
-  description: string
-  onPress: () => void
-  title: string
+  description?: string
+  onPress?: () => void
+  title?: string
 }
 
 const PlanExpired: React.FC<Props> = ({ description, onPress, title }) => (

@@ -5,9 +5,9 @@ import { IconBackground, IconCalendar, IconMeetup } from './icons'
 import { Section, TouchableOpacity } from '../../../../lib/components'
 
 type Props = {
-  description: string
-  onPress: () => void
-  title: string
+  description?: string
+  onPress?: () => void
+  title?: string
 }
 
 const Session: React.FC<Props> = ({ description, onPress, title }) => (

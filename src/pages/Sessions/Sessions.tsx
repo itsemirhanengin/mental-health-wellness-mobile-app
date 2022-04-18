@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, Text } from 'react-native'
 
 import { Page, Section, TouchableOpacity } from '../../lib/components'
-import { Session } from './components/Session'
-import { UpcomingSession } from './components/UpcomingSession'
+import { Session, UpcomingSession } from './components'
+
 import { IconChevronDown, IconSort } from './icons'
 
 const Sessions: React.FC = () => (
